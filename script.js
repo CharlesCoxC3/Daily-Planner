@@ -1,7 +1,6 @@
 var currentDay = $('#currentDay');
 var saveBtn = $('.btn');
-var textArea = $("#me");
-var time = moment().format("hhA");
+var time = moment().format("H");
 var nineAM = document.getElementById("09AM");
 var tenAM = document.getElementById("10AM");
 var elevenAM = document.getElementById("11AM");
@@ -13,11 +12,12 @@ var fourPM = document.getElementById("04PM");
 var fivePM = document.getElementById("05PM");
 
 
+
 if (nineAM.dataset.time == time){
     $(nineAM, "textarea").css("background-color", "green");
     $(nineAM, "textarea").css("color", "white");     
 }
-else if(nineAM.dataset.time >time){
+else if(nineAM.dataset.time > time){
     $(nineAM, "textarea").css("background-color", "grey"); 
     $(nineAM, "textarea").css("color", "white"); 
 }
@@ -136,11 +136,12 @@ function displayTime() {
     var rightNow = moment().format('MMM DD, YYYY');
     currentDay.text(rightNow);
 }
-
+console.log(time)
 $(saveBtn).on("click",function(){
+
     console.log("you clicked the button") 
     var todo = {
-        nineAmTodo: nineAM.textContent,
+        nineAmTodo: nineAM.innerHTML,
         tenAmTodo: tenAM.textContent,
         elevenAmTodo: elevenAM.textContent,
         twelevePmTodo: twelevePM.textContent,
