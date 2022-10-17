@@ -21,7 +21,7 @@ var fourPM = document.getElementById("04PM");
 var fivePM = document.getElementById("05PM");
 
 
-
+// sets dataset to compare time and change color based on that time
 if (nineAM.dataset.time == time){
     $(nineAM, "textarea").css("background-color", "green");
     $(nineAM, "textarea").css("color", "white");     
@@ -139,6 +139,7 @@ else {
     $(fivePM, "textarea").css("color", "white");  
 }
 
+//displays time
 displayTime();
 
 function displayTime() {
@@ -146,6 +147,7 @@ function displayTime() {
     currentDay.text(rightNow);
 }
 
+//sets text value to local storage
 $(btn1).on("click",function(){   
     localStorage.setItem("9am",$(nineAM).val())
 });
@@ -183,6 +185,7 @@ $(btn9).on("click",function(){
     localStorage.setItem("5pm",$(fivePM).val())
 });
 
+//gets Todo(s) from local storage on refresh
 getTodo()
 
 function getTodo(){
@@ -197,6 +200,7 @@ fourPM.textContent = localStorage.getItem("4pm",fourPM.textContent)
 fivePM.textContent = localStorage.getItem("5pm",fivePM.textContent)
 }
 
+//will reset all fields and clear local storage
 $(btnReset).on("click",function(){
     nineAM.textContent = ""
     tenAM.textContent = ""
