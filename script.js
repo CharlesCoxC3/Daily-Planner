@@ -1,5 +1,14 @@
 var currentDay = $('#currentDay');
-var saveBtn = $('.btn');
+var btn1= $('#btn1');
+var btn2= $('#btn2');
+var btn3= $('#btn3');
+var btn4= $('#btn4');
+var btn5= $('#btn5');
+var btn6= $('#btn6');
+var btn7= $('#btn7');
+var btn8= $('#btn8');
+var btn9= $('#btn9');
+var btnReset= $('#resetBtn');
 var time = moment().format("H");
 var nineAM = document.getElementById("09AM");
 var tenAM = document.getElementById("10AM");
@@ -136,31 +145,68 @@ function displayTime() {
     var rightNow = moment().format('MMM DD, YYYY');
     currentDay.text(rightNow);
 }
-console.log(time)
-$(saveBtn).on("click",function(){
 
-    console.log("you clicked the button") 
-    var todo = {
-        nineAmTodo: nineAM.innerHTML,
-        tenAmTodo: tenAM.textContent,
-        elevenAmTodo: elevenAM.textContent,
-        twelevePmTodo: twelevePM.textContent,
-        onePmTodo: onePM.textContent,
-        twoPmTodo: twoPM.textContent,
-        threePmTodo: threePM.textContent,
-        fourPmTodo: fourPM.textContent,
-        fivePmTodo: fivePM.textContent,
-    };
-
-    localStorage.setItem("todo",JSON.stringify(todo));
-
+$(btn1).on("click",function(){   
+    localStorage.setItem("9am",$(nineAM).val())
 });
 
-//if (timeDiv.dataset.time == time){
+$(btn2).on("click",function(){
 
-//}
+    localStorage.setItem("10am",$(tenAM).val())
+});
 
-function enterPlans(){
-    console.log("button clicked")
-};
+$(btn3).on("click",function(){
+    localStorage.setItem("11am",$(elevenAM).val())
+});
 
+$(btn4).on("click",function(){
+    localStorage.setItem("12pm",$(twelevePM).val())
+});
+
+$(btn5).on("click",function(){
+    localStorage.setItem("1pm",$(onePM).val())
+});
+
+$(btn6).on("click",function(){
+    localStorage.setItem("2pm",$(twoPM).val())
+});
+
+$(btn7).on("click",function(){
+    localStorage.setItem("3pm",$(threePM).val())
+});
+
+$(btn8).on("click",function(){
+    localStorage.setItem("4pm",$(fourPM).val())
+});
+
+$(btn9).on("click",function(){
+    localStorage.setItem("5pm",$(fivePM).val())
+});
+
+getTodo()
+
+function getTodo(){
+nineAM.textContent = localStorage.getItem("9am",nineAM.textContent)
+tenAM.textContent = localStorage.getItem("10am",tenAM.textContent)
+elevenAM.textContent = localStorage.getItem("11am",elevenAM.textContent)
+twelevePM.textContent = localStorage.getItem("12pm",twelevePM.textContent)
+onePM.textContent = localStorage.getItem("1pm",onePM.textContent)
+twoPM.textContent = localStorage.getItem("2pm",twoPM.textContent)
+threePM.textContent = localStorage.getItem("3pm",threePM.textContent)
+fourPM.textContent = localStorage.getItem("4pm",fourPM.textContent)
+fivePM.textContent = localStorage.getItem("5pm",fivePM.textContent)
+}
+
+$(btnReset).on("click",function(){
+    nineAM.textContent = ""
+    tenAM.textContent = ""
+    elevenAM.textContent = ""
+    twelevePM.textContent = ""
+    onePM.textContent = ""
+    twoPM.textContent = ""
+    threePM.textContent = ""
+    fourPM.textContent = ""
+    fivePM.textContent = ""
+ 
+    localStorage.clear()
+})

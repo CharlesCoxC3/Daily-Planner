@@ -80,3 +80,11 @@ img {
   height: 50px;
 
 }
+
+#resetBtn{
+  margin-left: 97px;
+}
+
+.btn-block{
+  width: 80%;
+}
